@@ -25,8 +25,24 @@ km = cm / 100000;
 console.log(km);
 
 // 04
-let curr = 100;
-console.log("Rp" + curr + ",00");
+let curr = 1000000;
+// format curr without using toLocaleString()
+let currFormat = "";
+let currStr = curr.toString();
+let count = 0;
+for (let i = currStr.length - 1; i >= 0; i--) {
+    if (count === 3) {
+        currFormat += ".";
+        count = 0;
+    }
+    currFormat += currStr[i];
+    count++;
+}
+let currFormatRev = "";
+for (let i = currFormat.length - 1; i >= 0; i--) {
+    currFormatRev += currFormat[i];
+}
+console.log("Rp " + currFormatRev + ",00");
 
 // 05
 let str = "hello world";
