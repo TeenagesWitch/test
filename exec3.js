@@ -26,7 +26,7 @@ console.log(km);
 
 // 04
 let curr = 100;
-console.log("Rp" + curr.toFixed(2));
+console.log("Rp" + curr + ",00");
 
 // 05
 let str = "hello world";
