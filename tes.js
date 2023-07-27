@@ -67,3 +67,11 @@ while (n > 0) {
     console.log(n);
     n--;
 }
+
+let m = "hello world";
+for (let i = 0; i < m.length; i++) {
+    if (m[i] === ' ') {
+        continue;
+    }
+    console.log(m[i]);
+}
