@@ -37,11 +37,15 @@ console.log(str.replace(search_string, ""));
 // 06
 let string = "hello world";
 // Capitalize first letter of every word
-let splitStr = string.toLowerCase().split(" ");
-for (let i = 0; i < splitStr.length; i++) {
-    splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+let capString = "";
+for (let i = 0; i < string.length; i++) {
+    if (i === 0 || string[i - 1] === " ") {
+        capString += string[i].toUpperCase();
+    } else {
+        capString += string[i];
+    }
 }
-console.log(splitStr.join(" "));
+console.log(capString);
 
 // 07
 let str1 = "hello world";
