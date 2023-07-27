@@ -26,7 +26,6 @@ console.log(km);
 
 // 04
 let curr = 1000000;
-// format curr without using toLocaleString()
 let currFormat = "";
 let currStr = curr.toString();
 let count = 0;
@@ -46,7 +45,7 @@ console.log("Rp " + currFormatRev + ",00");
 
 // 05
 let str = "hello world";
-search_string = "l";
+search_string = "ell";
 // Delete first occurence of search_string
 console.log(str.replace(search_string, ""));
 
