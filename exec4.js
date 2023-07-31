@@ -91,6 +91,7 @@ console.log(sumArr(arr4a, arr4b));
 // 05
 // Function that addds an element to the end of an array if it doesn't exist in the array
 let arr5 = [1, 2, 3, 4, 5];
+let arr6 = ["a", "b", "c", "d", "e"]
 function addElement(arr, element) {
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] === element) {
@@ -104,3 +105,5 @@ console.log(addElement(arr5, 5));
 console.log(addElement(arr5, 6));
 console.log(addElement(arr5, 6));
 console.log(addElement(arr5, 7));
+console.log(addElement(arr6, "e"));
+console.log(addElement(arr6, 1));
