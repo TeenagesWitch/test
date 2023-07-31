@@ -140,3 +140,44 @@ for (let i = 0; i < input1.length; i++) {
     }
 }
 console.log(replace);
+
+// 13
+let input2 = "ay";
+let input3 = "An apple a day keeps the doctor away";
+let replace2 = "";
+for (let i = 0; i < input3.length; i++) {
+    if (input3.toLowerCase().slice(i, i + input2.length) === input2.toLowerCase()) {
+        replace2 += "*";
+        i += input2.length - 1;
+    }
+    else {
+        replace2 += input3[i];
+    }
+}
+console.log(replace2);
+
+// 14
+let input4 = "an";
+let input5 = "An apple a day keeps the doctor away";
+let replace3 = "";
+for (let i = 0; i < input5.length; i++) {
+    if (input5.toLowerCase().slice(i, i + input4.length) === input4.toLowerCase()) {
+        replace3 += "*".repeat(input4.length);
+        i += input4.length - 1;
+    }
+    else {
+        replace3 += input5[i];
+    }
+}
+console.log(replace3);
+
+// 15
+// Replace input with asterisks
+let input6 = "abc";
+let replace4 = "";
+for (let i = 0; i < input6.length; i++) {
+    if (input6[i] !== "") {
+        replace4 += "*";
+    }
+}
+console.log(replace4);
