@@ -44,7 +44,7 @@ let arr4 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 9];
 function findDuplicates(arr) {
     let duplicates = [];
     for (let i = 0; i < arr.length; i++) {
-        if (arr.indexOf(arr[i]) !== arr.lastIndexOf(arr[i])) {
+        if (arr.includes(arr[i], i + 1) && !duplicates.includes(arr[i])) {
             duplicates.push(arr[i]);
         }
     }
