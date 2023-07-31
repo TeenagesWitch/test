@@ -21,19 +21,14 @@ function highestLowestAvg(arr) {
 console.log(highestLowestAvg(arr));
 
 // with sorting
+console.log(arr.sort());
 function highestLowestAvgSort(arr) {
-    let highest = arr[0];
+    let highest = arr[arr.length - 1];
     let lowest = arr[0];
     let sum = 0;
     arr.sort();
     for (let i = 0; i < arr.length; i++) {
         sum += arr[i];
-        if (arr[i] > highest) {
-            highest = arr[i];
-        }
-        if (arr[i] < lowest) {
-            lowest = arr[i];
-        }
     }
     let avg = sum / arr.length;
     return [highest, lowest, avg];
