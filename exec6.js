@@ -72,42 +72,53 @@ class Product {
         this.name = name;
         this.price = price;
     }
-
-    showInfo() {
-        console.log(`Name: ${this.name}, Price: ${this.price}`);
-    }
 }
 
-class Transaction extends Product {
-    total;
-    quantity;
+class Transaction {
+    cart = [];
 
-    constructor(name, price, quantity) {
-        super(name, price);
-        this.quantity = quantity;
-        this.total = this.quantity * this.price;
+    addtoCart(product, quantity) {
+        if (!(product instanceof Product)) {
+            return;
+        }
+
+        this.cart.push({
+            product: product,
+            quantity: quantity
+        });
     }
 
-    // Add to cart function
-    addToCart() {
-        console.log(`Add ${this.quantity} ${this.name} to cart`);
+    getCart() {
+        // return name, price, quantity in string
+        let result = "";
+        for (let item of this.cart) {
+            result += `\n${item.product.name} - ${item.product.price} - ${item.quantity}`;
+        }
+
+        return result;
     }
 
-    // Show total function
     showTotal() {
-        console.log(`Total: ${this.total}`);
+        let total = 0;
+        for (let item of this.cart) {
+            total += item.product.price * item.quantity;
+        }
+
+        return total;
     }
 
-    // Checkout function
     checkout() {
-        console.log(`Checkout ${this.total}`);
+        console.log("Cart: ", this.getCart());
+        console.log("Total: ", this.showTotal());
     }
 }
 
-const product = new Product("Iphone", 1000);
-product.showInfo();
+const product1 = new Product("Iphone", 1000);
+const product2 = new Product("Samsung", 2000);
 
-const transaction = new Transaction("Iphone", 1000, 2);
-transaction.addToCart();
-transaction.showTotal();
+const transaction = new Transaction();
+
+transaction.addtoCart(product1, 2);
+transaction.addtoCart(product2, 4);
+
 transaction.checkout();
