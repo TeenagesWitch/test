@@ -144,6 +144,9 @@ function romanToInt(s) {
         if (i > 0 && s[i] === s[i - 1]) {
           return NaN; // Invalid combinations like "IIV", "CCD", "XXL", "DDM"
         }
+        if (i < s.length - 2 && s[i] === s[i + 2]) {
+          return NaN; // Invalid combinations like "IXI", "IVI", "XLX", "CDC"
+        }
         if (!['IV', 'IX', 'XL', 'XC', 'CD', 'CM'].includes(s[i] + s[i + 1])) {
           return NaN; // Invalid subtraction combinations
         }
@@ -168,8 +171,8 @@ function romanToInt(s) {
   
     return total;
   }
-  
-console.log(romanToInt('MCMXCIV'));
+    
+console.log(romanToInt('MCM'));
 console.log(romanToInt('IV'));
 
 // 06
