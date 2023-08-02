@@ -125,3 +125,29 @@ const arr4 = [
 ];
 
 console.log(switchPropertyAndValue(arr4));
+
+// 05
+// Function to translate roman number to integer
+
+function romanToInt(roman) {
+    const romanToIntMap = {
+        I: 1,
+        V: 5,
+        X: 10,
+        L: 50
+    };
+
+    let result = 0;
+
+    for (let i = 0; i < roman.length; i++) {
+        if (romanToIntMap[roman[i]] < romanToIntMap[roman[i + 1]]) {
+            result -= romanToIntMap[roman[i]];
+        } else {
+            result += romanToIntMap[roman[i]];
+        }
+    }
+
+    return result;
+}
+
+console.log(romanToInt("XIV"));
