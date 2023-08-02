@@ -2,10 +2,6 @@
 // Function that checks if two objects are equal.
 
 function isEqual(obj1, obj2) {
-  return JSON.stringify(obj1) === JSON.stringify(obj2);
-}
-
-function isEqual2(obj1, obj2) {
     const keys1 = Object.keys(obj1);
     const keys2 = Object.keys(obj2);
 
@@ -24,7 +20,7 @@ function isEqual2(obj1, obj2) {
 }
 
 const obj1a = {
-    a: "2",
+    a: "1",
     b: "1",
     c: "1",
     d: "1"
@@ -32,13 +28,12 @@ const obj1a = {
 
 const obj1b = {
     a: "1",
-    b: "1",
+    d: "1",
     c: "1",
-    d: "1"
+    b: "1"
 };
 
 console.log(isEqual(obj1a, obj1b));
-console.log(isEqual2(obj1a, obj1b));
 
 // 02
 // Function to get intersection of two objects
@@ -212,4 +207,4 @@ function longestPalindrome(s) {
     return longest;
 }
 
-console.log(longestPalindrome('babad'));
+console.log(longestPalindrome('cbbd'));
