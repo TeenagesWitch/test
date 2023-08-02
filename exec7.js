@@ -129,27 +129,50 @@ console.log(switchPropertyAndValue(arr4));
 // 05
 // Function to translate roman number to integer
 
-function romanToInt(roman) {
-    const romanToIntMap = {
-        I: 1,
-        V: 5,
-        X: 10,
-        L: 50,
-        C: 100,
-        M: 1000
+function romanToInt(s) {
+    const romanMap = {
+      'I': 1,
+      'V': 5,
+      'X': 10,
+      'L': 50,
+      'C': 100,
+      'D': 500,
+      'M': 1000
     };
-
-    let result = 0;
-
-    for (let i = 0; i < roman.length; i++) {
-        if (romanToIntMap[roman[i]] < romanToIntMap[roman[i + 1]]) {
-            result -= romanToIntMap[roman[i]];
-        } else {
-            result += romanToIntMap[roman[i]];
+  
+    // Validate input
+    for (let i = 0; i < s.length; i++) {
+      if (!romanMap[s[i]]) {
+        return NaN;
+      }
+      if (i < s.length - 1 && romanMap[s[i]] < romanMap[s[i + 1]]) {
+        if (i > 0 && s[i] === s[i - 1]) {
+          return NaN; // Invalid combinations like "IIV", "CCD", "XXL", "DDM"
         }
+        if (!['IV', 'IX', 'XL', 'XC', 'CD', 'CM'].includes(s[i] + s[i + 1])) {
+          return NaN; // Invalid subtraction combinations
+        }
+      }
+      if (i > 1 && s[i] === s[i - 1] && s[i] === s[i - 2] && s[i] === s[i - 3]) {
+        return NaN; // More than three consecutive identical characters
+      }
+      if (i > 0 && s[i] === s[i - 1] && ['V', 'L', 'D'].includes(s[i])) {
+        return NaN; // Multiple consecutive "V", "L", or "D"
+      }
     }
-
-    return result;
-}
-
-console.log(romanToInt("XIV"));
+  
+    let total = 0;
+    for (let i = 0; i < s.length; i++) {
+      if (i < s.length - 1 && romanMap[s[i]] < romanMap[s[i + 1]]) {
+        total += romanMap[s[i + 1]] - romanMap[s[i]];
+        i++; // Skip next character
+      } else {
+        total += romanMap[s[i]];
+      }
+    }
+  
+    return total;
+  }
+  
+console.log(romanToInt('MCMXCIV'));
+console.log(romanToInt('IV'));
