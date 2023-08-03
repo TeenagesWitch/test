@@ -57,8 +57,14 @@ class Player {
         console.log('-----------------------------');
       }
   
-      let winner = this.player1.health > 0 ? this.player1.name : this.player2.name;
-      console.log(`Winner is ${winner}`);
+      let winner;
+      if (this.player1.health <= 0 && this.player2.health <= 0) {
+        winner = 'It\'s a draw!';
+      } else {
+        winner = this.player1.health > 0 ? this.player1 : this.player2;
+        winner = `Player ${winner.name} wins!`;
+      }
+        console.log(winner);
     }
   }
   
