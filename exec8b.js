@@ -75,8 +75,10 @@ class ShootingGame {
 
   async start() {
     console.log('Game started!');
+    let turns = 0;
 
     while (this.player1.health > 0 && this.player2.health > 0) {
+      console.log(`Turn ${++turns}`);
       await this.takeTurn(this.player1, this.player2);
       if (this.player2.health <= 0) break;
 
@@ -85,7 +87,7 @@ class ShootingGame {
     }
 
     let winner = this.player1.health > 0 ? this.player1.name : this.player2.name;
-    console.log(`Winner is ${winner}`);
+    console.log(`Player ${winner} wins in ${turns} turns!`);
   }
 }
 
