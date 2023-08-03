@@ -211,3 +211,16 @@ function longestPalindrome(s) {
 }
 
 console.log(longestPalindrome('cbbd'));
+
+// 07
+// function to get factorial of a number
+
+function factorial(n) {
+    if (n === 0) {
+        return 1;
+    }
+
+    return n * factorial(n - 1);
+}
+
+console.log(factorial(5));
