@@ -24,3 +24,26 @@ function intToRoman(num) {
 }
 
 console.log(intToRoman(3999));
+
+// 03
+// function to generate all combinations of parentheses (fastest time complexity)
+
+function generateParenthesis(n) {
+    const result = [];
+    function generate(str, left, right) {
+        if (left === 0 && right === 0) {
+            result.push(str);
+            return;
+        }
+        if (left > 0) {
+            generate(str + "(", left - 1, right);
+        }
+        if (right > left) {
+            generate(str + ")", left, right - 1);
+        }
+    }
+    generate("", n, n);
+    return result;
+}
+
+console.log(generateParenthesis(3));
