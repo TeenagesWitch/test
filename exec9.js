@@ -47,3 +47,56 @@ function generateParenthesis(n) {
 }
 
 console.log(generateParenthesis(3));
+
+// 04
+// Given a non-empty array of integers nums, every element appears twice except for one. Find that single one
+// You must implement a solution with a linear runtime complexity and use only constant extra space.
+
+function singleNumber(nums) {
+    let result = 0;
+    for (let i = 0; i < nums.length; i++) {
+        result ^= nums[i];
+    }
+    return result;
+}
+
+console.log(singleNumber([4,1,2,1,2]));
+
+// 05
+// Given two strings s and t, return true if t is an anagram of s, and false otherwise
+
+function isAnagram(s, t) {
+    if (s.length !== t.length) {
+        return false;
+    }
+    const map = {};
+    for (let i = 0; i < s.length; i++) {
+        map[s[i]] = map[s[i]] + 1 || 1;
+    }
+    for (let i = 0; i < t.length; i++) {
+        if (!map[t[i]]) {
+            return false;
+        }
+        map[t[i]]--;
+    }
+    return true;
+}
+
+console.log(isAnagram("anagram", "nagaram"));
+console.log(isAnagram("rat", "car"));
+console.log(isAnagram("a", "ab"));
+
+// 06
+/* You are climbing a staircase. It takes n steps to reach the top. Each time you can either climb 1
+or 2 steps. In how many distinct ways can you climb to the top? */
+
+function climbStairs(n) {
+    const dp = [1, 1];
+    for (let i = 2; i <= n; i++) {
+        dp[i] = dp[i-1] + dp[i-2];
+    }
+    return dp[n];
+}
+
+console.log(climbStairs(2));
+console.log(climbStairs(3));
