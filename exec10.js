@@ -49,11 +49,11 @@ console.log(generate(5));
 console.log(generate(1));
 
 // 04
-/* You are given an array prices where prices[i] is the price of a given stock on the ith day.
+/* You are given an array prices where prices[i] is the price of a given stock on the i-th day.
 ● You want to maximize your profit by choosing a single day to buy one stock and choosing a
 different day in the future to sell that stock.
 ● Return the maximum profit you can achieve from this transaction. If you cannot achieve any
-profit, return ÷. */
+profit, return 0. */
 
 function maxProfit(prices) {
     let minPrice = prices[0];
@@ -65,5 +65,25 @@ function maxProfit(prices) {
     return maxProfit;
 }
 
+function greedyMaxProfit(prices) {
+    let minPrice = Infinity;
+    let maxProfit = 0;
+
+    for (let i = 0; i < prices.length; i++) {
+        const buyPrice = prices[i];
+        if (buyPrice < minPrice) {
+            minPrice = buyPrice;
+        }
+
+        const profit = buyPrice - minPrice;
+        if (profit > maxProfit) {
+            maxProfit = profit;
+        }
+    }
+    return maxProfit;
+}
+
 console.log(maxProfit([7,1,5,3,6,4]));
 console.log(maxProfit([7,6,4,3,1]));
+console.log(greedyMaxProfit([7,1,5,3,6,4]));
+console.log(greedyMaxProfit([7,6,4,3,1]));
