@@ -1,3 +1,4 @@
+// Sequence
 // 01. buat 2 fungsi berbeda
 function calculator(a, b) {
     return a + b;
@@ -35,3 +36,29 @@ betterCalculator(1, 2, storeResult);
 betterCalculator(1, 2, (result) => {
     console.log('Hasilnya adalah ' + result);
 });
+
+
+// Promise
+let isSuccessful = true;
+
+const myPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        if (isSuccessful) {
+            resolve('Success');
+        } else {
+            reject('Error');
+        }
+    }
+    , 3000);
+});
+
+myPromise
+    .then((result) => {
+        console.log(result);
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+    .finally(() => {
+        console.log('Done');
+    });
