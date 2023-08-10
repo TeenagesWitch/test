@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Home</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>Home</h1>
+                <h1>Home</h1>
+                <h1>Home</h1>
+            </div>
+            <div class="content">
+                <h2 id="money">Name</h2>
+                <ul id="id-name">
+                    <li>John</li>
+                    <li>Paul</li>
+                    <li>George</li>
+                    <li>Ringo</li>
+                </ul>
+            </div>
+            <div class="footer">
+                <p>Footer</p>
+            </div>
+        </div>
+    </body>
+    <script>
+        const helloWorld = "Hello World!"
+        console.log(helloWorld)
+
+        const listwrapper = document.getElementById("id-name")
+        console.log(listwrapper)
+
+        // Script to add "My name is" to each name in the list
+        const names = document.querySelectorAll("li")
+        console.log(names)
+        for (let i = 0; i < names.length; i++) {
+            names[i].innerHTML = "My name is " + names[i].innerHTML
+        }
+
+        const target = document.getElementById("money")
+        const format = new Intl.NumberFormat('id-ID')
+        const money = 10000000
+        target.innerHTML = format.format(money)
+
+        // Replace anything in h1 with money
+
+        const h1 = document.querySelectorAll("h1")
+        for (let i = 0; i < h1.length; i++) {
+            h1[i].innerHTML = format.format(money)
+        }
+    </script>
+</html>
