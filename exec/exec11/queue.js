@@ -1,6 +1,7 @@
 class FoodOrderQueue {
     constructor() {
       this.queue = [];
+      this.queueNumber = 1;
     }
   
     // Add an order to the queue
@@ -14,7 +15,7 @@ class FoodOrderQueue {
     }
   
     // Process the order in the queue
-    processOrder(queueNumber) {
+    processOrder() {
       return new Promise((resolve, reject) => {
         if (this.queue.length === 0) {
           reject('No orders in the queue.');
@@ -25,10 +26,27 @@ class FoodOrderQueue {
         const processingTime = Math.floor(Math.random() * 10) + 1;
   
         setTimeout(() => {
-          resolve(`Queue ${queueNumber} Done in ${processingTime} minutes.`);
+          resolve(`Queue ${this.queueNumber} Done in ${processingTime} seconds.`);
         }, processingTime * 1000);
       });
     }
-  }
   
+    // Function to process all orders in the queue
+    processAllOrders() {
+      if (this.queue.length > 0) {
+        this.processOrder()
+          .then((message) => {
+            console.log(message);
+            this.queueNumber += 1;
+            this.processAllOrders(); // Continue processing the next order
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      } else {
+        console.log('All orders have been processed.');
+      }
+    }
+  }
+
     module.exports = FoodOrderQueue;
