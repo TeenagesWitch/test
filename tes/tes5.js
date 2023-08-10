@@ -9,7 +9,7 @@ function displayer(something) {
 }
 
 const res = calculator(1, 2);
-displayer(res);
+// displayer(res);
 
 // 02. buat 1 fungsi yang menerima 2 fungsi lainnya
 
@@ -18,7 +18,7 @@ function newCalculator(a, b) {
     displayer(res);
 }
 
-newCalculator(1, 2);
+// newCalculator(1, 2);
 
 // 03. Menambahkan callback parameter pada fungsi
 
@@ -31,11 +31,11 @@ function storeResult(result) {
     // simpan something ke file
 }
 
-betterCalculator(1, 2, displayer);
-betterCalculator(1, 2, storeResult);
-betterCalculator(1, 2, (result) => {
-    console.log('Hasilnya adalah ' + result);
-});
+// betterCalculator(1, 2, displayer);
+// betterCalculator(1, 2, storeResult);
+// betterCalculator(1, 2, (result) => {
+//     console.log('Hasilnya adalah ' + result);
+// });
 
 
 // Promise
@@ -68,4 +68,37 @@ const runPromise = async () => {
     console.log('End');
 };
 
-runPromise();
+// runPromise();
+
+const newRunPromise = async () => {
+    try {
+        const message = await myPromise;
+        const msg = await Promise.resolve('Good');
+        console.log(msg);
+    } catch (error) {
+        console.log(error);
+    }
+    console.log('End');
+};
+
+// newRunPromise();
+
+// JSON
+const jsonData = `{
+    "employees": [
+        { "firstName": "John", "lastName": "Doe" },
+        { "firstName": "Anna", "lastName": "Smith" },
+        { "firstName": "Peter", "lastName": "Jones" }
+    ]
+}`;
+
+console.log(jsonData);
+const objData = JSON.parse(jsonData);
+objData.name = "data pegawai";
+objData.employees.push({
+    "firstName": "Rudi",
+    "lastName": "Hartono"
+});
+console.log(objData);
+const jsonData2 = JSON.stringify(objData);
+console.log(jsonData2);
