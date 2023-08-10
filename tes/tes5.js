@@ -52,13 +52,20 @@ const myPromise = new Promise((resolve, reject) => {
     , 3000);
 });
 
-myPromise
-    .then((result) => {
-        console.log(result);
-    })
-    .catch((error) => {
-        console.log(error);
-    })
-    .finally(() => {
-        console.log('Done');
-    });
+// Await & Async
+const runPromise = async () => {
+    console.log('Start');
+    await myPromise
+        .then((result) => {
+            console.log(result);
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+        .finally(() => {
+            console.log('Done');
+        });
+    console.log('End');
+};
+
+runPromise();
