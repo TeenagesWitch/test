@@ -13,4 +13,4 @@ foodQueue.addOrder('Sandwich');
 foodQueue.printQueue();
 
 // Start processing orders
-foodQueue.processAllOrders();
+foodQueue.processOrders();
