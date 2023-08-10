@@ -3,7 +3,6 @@ const FoodOrderQueue = require('./queue');
 const foodQueue = new FoodOrderQueue();
 
 // Adding orders to the queue
-console.log('Add orders to queue');
 foodQueue.addOrder('Burger');
 foodQueue.addOrder('Pizza');
 foodQueue.addOrder('Salad');

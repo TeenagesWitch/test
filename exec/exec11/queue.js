@@ -2,6 +2,7 @@ class FoodOrderQueue {
     constructor() {
       this.queue = [];
       this.queueNumber = 1;
+      this.emptyMessagePrinted = false;
     }
   
     // Add an order to the queue
@@ -11,13 +12,23 @@ class FoodOrderQueue {
   
     // Print all data in the queue
     printQueue() {
-      console.log('Orders in queue:', this.queue);
+      if (this.queue.length === 0 && !this.emptyMessagePrinted) {
+        console.log('There is no order in the queue.');
+        this.emptyMessagePrinted = true; // Mark the message as printed
+      } else if (this.queue.length > 0) {
+        console.log('Orders in queue:', this.queue);
+      }
     }
   
     // Process all orders in the queue
     processOrders() {
       if (this.queue.length === 0) {
-        console.log('All orders have been processed.');
+        if (this.queueNumber > 1) {
+          console.log('All orders have been processed.');
+        } else if (!this.emptyMessagePrinted) {
+          console.log('There is no order in the queue.');
+          this.emptyMessagePrinted = true; // Mark the message as printed
+        }
         return;
       }
   
