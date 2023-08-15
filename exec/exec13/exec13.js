@@ -180,7 +180,7 @@ console.log(daysInMonth(2, 2021));
 function daysPassed(dateString) {
     const date = new Date(dateString);
     const firstDay = new Date(date.getFullYear(), 0, 1);
-    return Math.ceil((date - firstDay) / (1000 * 60 * 60 * 24));
+    return Math.ceil((date - firstDay) / (1000 * 60 * 60 * 24)) + 1;
 }
 
 console.log(daysPassed('Dec 31, 2021'));
@@ -201,3 +201,20 @@ function calculateAge(dateString) {
 
 console.log(calculateAge('Aug 13, 1999'));
 console.log(calculateAge('Aug 18, 2000'));
+
+// Add this line at the end of your file
+module.exports = {
+    isWeekend,
+    gcd,
+    lcm,
+    mostCommonChar,
+    sortString,
+    sortedString,
+    minDate,
+    sumOfArray,
+    longestCommonPrefix,
+    copyFirstHalf,
+    daysInMonth,
+    daysPassed,
+    calculateAge
+};
